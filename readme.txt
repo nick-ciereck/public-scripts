@@ -11,7 +11,7 @@ This script will install the 2012 SCCM Client.
 3. To implement hotfixes, In the \sccmClient directory make three directories called "I386", "X64" and "LegacyOSHotfix". Place the SCCM client hotfix(es) in the proper 32 or 64 bit directories.
 Place the legacy hotfixes in the "LegacyOSHotfix" directory. Ensure the options in the xml file have been updated.
 
-4. To implement error logging, make a "logs" folder on a server share. Note: Ensure that the folder has write permissions for the "SYSTEM" account. 
+4. To implement error logging, make a "logs" folder on a server share. Note: Ensure that for each client computer, the "SYSTEM" account has write permissions to the logs folder. 
 
 Note: The xml options CAN have trailing slashes. 
 
