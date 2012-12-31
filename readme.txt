@@ -1,3 +1,20 @@
+Readme for ConfigMgrStartup.xml
+
+INSTALLATION:
+
+This script will install the 2012 SCCM Client. 
+
+1. Make a folder to hold your SCCM Client setup files. The path should look something like this \\fileserver\publicSoftware\sccmClient.
+
+2. Place the "ConfigMgrStartup.vbs" and "ConfigMgrStartup.xml" files in the \sccmClient directory.
+
+3. To implement hotfixes, In the \sccmClient directory make three directories called "I386", "X64" and "LegacyOSHotfix". Place the SCCM client hotfix(es) in the proper 32 or 64 bit directories.
+Place the legacy hotfixes in the "LegacyOSHotfix" directory. Ensure the options in the xml file have been updated.
+
+4. To implement error logging, make a "logs" folder on a server share. Note: Ensure that the folder has write permissions for the "SYSTEM" account. 
+
+Note: The xml options CAN have trailing slashes. 
+
 Option Name: ConfigLogPath
 Option Value: \\fileserver\logs$
 Option Description: Folder that the final log will be copied to. It will be named: scriptname + computername + timestamp
@@ -35,5 +52,5 @@ Option Value: True
 Option Description: Forces uninstall of the client before any other operations. Useful for client corruption issues where an uninstall is needed before a reinstall will work.
 		
 Option Name: OtherInstallationProperties
-Option Value: /mp:https://yourmp.domain.com /usepkicert  SMSMP=https://yourmp.domain.com RESETKEYINFORMATION=TRUE DNSSUFFIX=asc.ohio-state.edu CCMCERTSEL="SubjectAttr:OU = your department"
+Option Value: /mp:https://yourmp.domain.com /usepkicert  SMSMP=https://yourmp.domain.com RESETKEYINFORMATION=TRUE DNSSUFFIX=Your.DNS.com CCMCERTSEL="SubjectAttr:OU = your department"
 Option Description: Any additional ccmsetup.exe parameters that you'd like to add.
